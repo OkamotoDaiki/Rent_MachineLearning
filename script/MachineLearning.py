@@ -13,9 +13,9 @@ def main():
                     "路線1","駅1","徒歩1",
                     "賃料","管理費","敷金","礼金"], 
                     axis=1)
-    X = df2.drop("賃料+管理費", axis=1).values
-    y = df["賃料+管理費"].values
-    indices = np.array(range(X.shape[0]))
+    X = df2.drop("賃料+管理費", axis=1).values #特徴量Xを間取り、築年数、建物高さ、階、専有面積、敷/礼にする
+    y = df["賃料+管理費"].values #yを賃料+管理費にする
+    indices = np.array(range(X.shape[0])) #順番を保存する
 
     X_train, X_test, y_train, y_test, indices_train, indices_test = train_test_split(
         X, y, indices, test_size=0.3, random_state=0)    
